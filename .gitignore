@@ -1,0 +1,22 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userprefs
+
+# Resultados de compilación
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# Paquetes NuGet
+*.nupkg
+packages/
+
+# Archivos del sistema
+Thumbs.db
+.DS_Store
+*.log
