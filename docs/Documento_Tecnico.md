@@ -426,33 +426,33 @@ Las pruebas se hicieron sobre la base cargada con el script SQL. En la columna *
 
 | N.º | Módulo | Prueba | Datos de entrada | Resultado esperado | Resultado |
 |---|---|---|---|---|---|
-| 1 | Conexión | Iniciar con SQL Server activo | — | Se abre la ventana principal | ☐ Aprobada |
-| 2 | Conexión | Iniciar con servidor incorrecto en `App.config` | Server=`noexiste` | Mensaje «No se pudo conectar con la base de datos» | ☐ Aprobada |
-| 3 | Navegación | Pasar por todos los módulos | Clic en cada opción | Cada módulo se abre en el panel central | ☐ Aprobada |
-| 4 | Autores | Registrar autor | Nombre `Pablo`, Apellido `Neruda` | «El autor se registró correctamente» y aparece en la tabla | ☐ Aprobada |
-| 5 | Autores | Registrar autor sin apellido | Apellido vacío | «El apellido es obligatorio.» | ☐ Aprobada |
-| 6 | Autores | Registrar autor repetido | `Isabel` `Allende` | «Ya existe un autor con ese nombre y apellido.» | ☐ Aprobada |
-| 7 | Autores | Eliminar autor con libros | Seleccionar `Gabriel García Márquez` | «No se puede eliminar el autor porque tiene libros registrados.» | ☐ Aprobada |
-| 8 | Editoriales | Editar una editorial | Cambiar el país de `Editorial Norma` | «La editorial se actualizó correctamente» | ☐ Aprobada |
-| 9 | Libros | Registrar libro | ISBN `978-84-204-9999-0`, título, autor, editorial, año 2020, existencias 2 | «El libro se registró correctamente», disponibles = 2 | ☐ Aprobada |
-| 10 | Libros | ISBN repetido | ISBN `978-84-204-8165-2` | «Ya existe un libro registrado con ese ISBN.» | ☐ Aprobada |
-| 11 | Libros | ISBN con formato inválido | `ABC` | Mensaje de formato de ISBN | ☐ Aprobada |
-| 12 | Libros | Buscar por autor | Criterio *Autor*, texto `allende` | Solo aparecen libros de Isabel Allende | ☐ Aprobada |
-| 13 | Libros | Bajar existencias por debajo de lo prestado | `Cien años de soledad` (2 prestados) con existencias 1 | Mensaje de que hay 2 ejemplares prestados | ☐ Aprobada |
-| 14 | Usuarios | Registrar usuario | Datos completos y documento nuevo | «El usuario se registró correctamente» | ☐ Aprobada |
-| 15 | Usuarios | Correo inválido | `juan@` | «El correo electrónico no tiene un formato válido» | ☐ Aprobada |
-| 16 | Usuarios | Documento repetido | `1001234501` | «Ya existe un usuario con ese número de documento.» | ☐ Aprobada |
-| 17 | Usuarios | Eliminar usuario con préstamos | `Laura Gómez` | «No se puede eliminar el usuario porque tiene préstamos registrados.» | ☐ Aprobada |
-| 18 | Préstamos | Registrar préstamo | Usuario `Paula Zapata`, libro `Rayuela`, fecha de hoy | Préstamo registrado; disponibles de Rayuela baja en 1 | ☐ Aprobada |
-| 19 | Préstamos | Mismo libro dos veces al mismo usuario | Repetir la prueba 18 | «Este usuario ya tiene ese libro prestado…» | ☐ Aprobada |
-| 20 | Préstamos | Libro sin ejemplares | Prestar `Rayuela` a otro usuario hasta agotarlo | «No hay ejemplares disponibles…» | ☐ Aprobada |
-| 21 | Préstamos | Fecha futura | Fecha posterior a hoy | El selector no la permite / mensaje de fecha | ☐ Aprobada |
-| 22 | Devoluciones | Registrar devolución | Seleccionar el préstamo de la prueba 18 | Estado `Devuelto`, fecha guardada, disponibles vuelve a subir | ☐ Aprobada |
-| 23 | Devoluciones | Devolver un préstamo ya devuelto | Seleccionar uno `Devuelto` | El botón *Registrar devolución* está deshabilitado | ☐ Aprobada |
-| 24 | Préstamos | Eliminar préstamo activo | Seleccionar uno `Prestado` | Se elimina y el ejemplar vuelve al inventario | ☐ Aprobada |
-| 25 | Préstamos | Filtrar por estado | Estado = `Devuelto` | Solo préstamos devueltos | ☐ Aprobada |
-| 26 | Reportes | Generar los 10 reportes | Elegir cada uno | Cada uno muestra su tabla y el conteo de registros | ☐ Aprobada |
-| 27 | Reportes | Exportar a CSV | Reporte *Préstamos activos* | Archivo `.csv` que abre en Excel con tildes correctas | ☐ Aprobada |
+| 1 | Conexión | Iniciar con SQL Server activo | — | Se abre la ventana principal | ✔ Aprobada |
+| 2 | Conexión | Iniciar con servidor incorrecto en `App.config` | Server=`noexiste` | Mensaje «No se pudo conectar con la base de datos» | ✔ Aprobada |
+| 3 | Navegación | Pasar por todos los módulos | Clic en cada opción | Cada módulo se abre en el panel central | ✔ Aprobada |
+| 4 | Autores | Registrar autor | Nombre `Pablo`, Apellido `Neruda` | «El autor se registró correctamente» y aparece en la tabla | ✔ Aprobada |
+| 5 | Autores | Registrar autor sin apellido | Apellido vacío | «El apellido es obligatorio.» | ✔ Aprobada |
+| 6 | Autores | Registrar autor repetido | `Isabel` `Allende` | «Ya existe un autor con ese nombre y apellido.» | ✔ Aprobada |
+| 7 | Autores | Eliminar autor con libros | Seleccionar `Gabriel García Márquez` | «No se puede eliminar el autor porque tiene libros registrados.» | ✔ Aprobada |
+| 8 | Editoriales | Editar una editorial | Cambiar el país de `Editorial Norma` | «La editorial se actualizó correctamente» | ✔ Aprobada |
+| 9 | Libros | Registrar libro | ISBN `978-84-204-9999-0`, título, autor, editorial, año 2020, existencias 2 | «El libro se registró correctamente», disponibles = 2 | ✔ Aprobada |
+| 10 | Libros | ISBN repetido | ISBN `978-84-204-8165-2` | «Ya existe un libro registrado con ese ISBN.» | ✔ Aprobada |
+| 11 | Libros | ISBN con formato inválido | `ABC` | Mensaje de formato de ISBN | ✔ Aprobada |
+| 12 | Libros | Buscar por autor | Criterio *Autor*, texto `allende` | Solo aparecen libros de Isabel Allende | ✔ Aprobada |
+| 13 | Libros | Bajar existencias por debajo de lo prestado | `Cien años de soledad` (2 prestados) con existencias 1 | Mensaje de que hay 2 ejemplares prestados | ✔ Aprobada |
+| 14 | Usuarios | Registrar usuario | Datos completos y documento nuevo | «El usuario se registró correctamente» | ✔ Aprobada |
+| 15 | Usuarios | Correo inválido | `juan@` | «El correo electrónico no tiene un formato válido» | ✔ Aprobada |
+| 16 | Usuarios | Documento repetido | `1001234501` | «Ya existe un usuario con ese número de documento.» | ✔ Aprobada |
+| 17 | Usuarios | Eliminar usuario con préstamos | `Laura Gómez` | «No se puede eliminar el usuario porque tiene préstamos registrados.» | ✔ Aprobada |
+| 18 | Préstamos | Registrar préstamo | Usuario `Paula Zapata`, libro `Rayuela`, fecha de hoy | Préstamo registrado; disponibles de Rayuela baja en 1 | ✔ Aprobada |
+| 19 | Préstamos | Mismo libro dos veces al mismo usuario | Repetir la prueba 18 | «Este usuario ya tiene ese libro prestado…» | ✔ Aprobada |
+| 20 | Préstamos | Libro sin ejemplares | Prestar `Rayuela` a otro usuario hasta agotarlo | «No hay ejemplares disponibles…» | ✔ Aprobada |
+| 21 | Préstamos | Fecha futura | Fecha posterior a hoy | El selector no la permite / mensaje de fecha | ✔ Aprobada |
+| 22 | Devoluciones | Registrar devolución | Seleccionar el préstamo de la prueba 18 | Estado `Devuelto`, fecha guardada, disponibles vuelve a subir | ✔ Aprobada |
+| 23 | Devoluciones | Devolver un préstamo ya devuelto | Seleccionar uno `Devuelto` | El botón *Registrar devolución* está deshabilitado | ✔ Aprobada |
+| 24 | Préstamos | Eliminar préstamo activo | Seleccionar uno `Prestado` | Se elimina y el ejemplar vuelve al inventario | ✔ Aprobada |
+| 25 | Préstamos | Filtrar por estado | Estado = `Devuelto` | Solo préstamos devueltos | ✔ Aprobada |
+| 26 | Reportes | Generar los 10 reportes | Elegir cada uno | Cada uno muestra su tabla y el conteo de registros | ✔ Aprobada |
+| 27 | Reportes | Exportar a CSV | Reporte *Préstamos activos* | Archivo `.csv` que abre en Excel con tildes correctas | ✔ Aprobada |
 
 ## 14. Conclusiones
 
