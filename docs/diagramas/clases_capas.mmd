@@ -1,0 +1,68 @@
+classDiagram
+    direction LR
+    class FormModulo {
+        <<abstract>>
+        #CargarGrid(filtro)
+        #GuardarRegistro() string
+        #EliminarRegistro() string
+        #MostrarSeleccion(registro)
+        #LimpiarCampos()
+    }
+    class FormLibros
+    class FormPrestamos
+    class LibroNegocio {
+        +Buscar(criterio, texto)
+        +Registrar(libro) int
+        +Actualizar(libro)
+        +Eliminar(id)
+        -Validar(libro)
+    }
+    class PrestamoNegocio {
+        +Registrar(idUsuario, idLibro, fecha) int
+        +Devolver(idPrestamo, fecha)
+        +Actualizar(id, fechaPrestamo, fechaDevolucion)
+        +Eliminar(id)
+    }
+    class Validador {
+        <<static>>
+        +Requerido()
+        +Isbn()
+        +Correo()
+        +Telefono()
+        +Documento()
+    }
+    class LibroDatos {
+        +Buscar(criterio, texto)
+        +Insertar(libro) int
+        +Actualizar(libro) bool
+        +Eliminar(id) bool
+    }
+    class PrestamoDatos {
+        +Registrar(prestamo) int
+        +Devolver(id, fecha)
+        +ActualizarFechas() bool
+        +Eliminar(id)
+    }
+    class Ejecutor {
+        <<static>>
+        +Consultar()
+        +NoQuery()
+        +Escalar()
+        +Tabla()
+        +Traducir(SqlException)
+    }
+    class ConexionBD {
+        <<static>>
+        +CrearConexion()
+        +Probar()
+    }
+    FormModulo <|-- FormLibros
+    FormModulo <|-- FormPrestamos
+    FormLibros --> LibroNegocio
+    FormPrestamos --> PrestamoNegocio
+    LibroNegocio --> Validador
+    LibroNegocio --> LibroDatos
+    PrestamoNegocio --> PrestamoDatos
+    LibroDatos --> Ejecutor
+    PrestamoDatos --> Ejecutor
+    Ejecutor --> ConexionBD

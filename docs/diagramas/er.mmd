@@ -1,0 +1,43 @@
+erDiagram
+    AUTORES ||--o{ LIBROS : escribe
+    EDITORIALES ||--o{ LIBROS : publica
+    USUARIOS ||--o{ PRESTAMOS : solicita
+    LIBROS ||--o{ PRESTAMOS : "se presta en"
+    AUTORES {
+        int IdAutor PK
+        nvarchar80 Nombre
+        nvarchar80 Apellido
+        nvarchar60 Nacionalidad
+    }
+    EDITORIALES {
+        int IdEditorial PK
+        nvarchar100 Nombre UK
+        nvarchar60 Pais
+        nvarchar20 Telefono
+    }
+    USUARIOS {
+        int IdUsuario PK
+        nvarchar80 Nombre
+        nvarchar80 Apellido
+        nvarchar20 Documento UK
+        nvarchar20 Telefono
+        nvarchar120 Correo
+    }
+    LIBROS {
+        int IdLibro PK
+        nvarchar17 Isbn UK
+        nvarchar200 Titulo
+        int IdAutor FK
+        int IdEditorial FK
+        smallint AnioPublicacion
+        int Existencias
+        int Disponibles
+    }
+    PRESTAMOS {
+        int IdPrestamo PK
+        int IdUsuario FK
+        int IdLibro FK
+        date FechaPrestamo
+        date FechaDevolucion
+        nvarchar10 Estado
+    }

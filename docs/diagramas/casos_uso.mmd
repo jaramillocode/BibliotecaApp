@@ -1,0 +1,26 @@
+flowchart LR
+    B(["Bibliotecario"])
+    CU1([CU-01 Navegar entre módulos])
+    CU2([CU-02 Gestionar libros])
+    CU3([CU-03 Buscar libros])
+    CU4([CU-04 Gestionar autores])
+    CU5([CU-05 Gestionar editoriales])
+    CU6([CU-06 Gestionar usuarios])
+    CU7([CU-07 Registrar préstamo])
+    CU8([CU-08 Registrar devolución])
+    CU9([CU-09 Consultar y corregir préstamos])
+    CU10([CU-10 Generar reportes])
+    CU11([CU-11 Exportar reporte a CSV])
+    B --- CU1
+    B --- CU2
+    B --- CU4
+    B --- CU5
+    B --- CU6
+    B --- CU7
+    B --- CU8
+    B --- CU9
+    B --- CU10
+    CU2 -. «include» .-> CU3
+    CU7 -. «include» .-> CU6
+    CU7 -. «include» .-> CU2
+    CU11 -. «extend» .-> CU10

@@ -1,0 +1,24 @@
+flowchart TB
+    subgraph P["Capa de presentación — Biblioteca.Presentacion (Windows Forms)"]
+        direction LR
+        FP[FrmPrincipal] --- FM[FormModulo y formularios de módulos]
+        FM --- UI[Ui · FormEmbebido]
+    end
+    subgraph N["Capa de lógica de negocio — Biblioteca.Negocio"]
+        direction LR
+        SN[Clases *Negocio] --- VA[Validador]
+        VA --- TE[TraductorErrores · ReglaNegocioException]
+    end
+    subgraph D["Capa de acceso a datos — Biblioteca.Datos"]
+        direction LR
+        DA[Clases *Datos] --- EJ[Ejecutor]
+        EJ --- CO[ConexionBD · DatosException]
+    end
+    subgraph E["Entidades — Biblioteca.Entidades"]
+        EN[EntidadBase · Persona · Autor · Usuario · Editorial · Libro · Prestamo]
+    end
+    BD[("SQL Server — BibliotecaDB<br/>Autores · Editoriales · Usuarios · Libros · Prestamos · vistas")]
+    P --> N --> D --> BD
+    P -.usa.-> E
+    N -.usa.-> E
+    D -.usa.-> E

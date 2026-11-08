@@ -1,0 +1,22 @@
+sequenceDiagram
+    actor B as Bibliotecario
+    participant F as FormPrestamos
+    participant N as PrestamoNegocio
+    participant D as PrestamoDatos
+    participant S as SQL Server
+    B->>F: Elige usuario, libro y fecha, y pulsa Guardar
+    F->>N: Registrar(idUsuario, idLibro, fecha)
+    N->>N: Valida fecha, usuario, libro y disponibilidad
+    alt Dato inválido o sin ejemplares
+        N-->>F: ReglaNegocioException (mensaje claro)
+        F-->>B: Advertencia
+    else Datos correctos
+        N->>D: Registrar(prestamo)
+        D->>S: BEGIN TRANSACTION
+        D->>S: UPDATE Libros SET Disponibles = Disponibles - 1
+        D->>S: INSERT INTO Prestamos (estado Prestado)
+        D->>S: COMMIT
+        D-->>N: Id del préstamo
+        N-->>F: Id del préstamo
+        F-->>B: "El préstamo se registró correctamente"
+    end

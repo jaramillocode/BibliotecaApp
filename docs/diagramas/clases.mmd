@@ -1,0 +1,66 @@
+classDiagram
+    direction TB
+    class EntidadBase {
+        <<abstract>>
+        +int Id
+        +bool EsNuevo
+    }
+    class Persona {
+        <<abstract>>
+        +string Nombre
+        +string Apellido
+        +string NombreCompleto
+        +ToString() string
+    }
+    class Autor {
+        +string Nacionalidad
+        +ToString() string
+    }
+    class Usuario {
+        +string Documento
+        +string Telefono
+        +string Correo
+        +string Descripcion
+    }
+    class Editorial {
+        +string Nombre
+        +string Pais
+        +string Telefono
+        +ToString() string
+    }
+    class Libro {
+        +string Isbn
+        +string Titulo
+        +int IdAutor
+        +int IdEditorial
+        +int AnioPublicacion
+        +int Existencias
+        +int Disponibles
+        +bool HayDisponibilidad
+        +int Prestados
+        +string Descripcion
+    }
+    class Prestamo {
+        +int IdUsuario
+        +int IdLibro
+        +DateTime FechaPrestamo
+        +DateTime? FechaDevolucion
+        +string Estado
+        +bool EstaActivo
+    }
+    class EstadoPrestamo {
+        <<static>>
+        +Prestado
+        +Devuelto
+    }
+    EntidadBase <|-- Persona
+    EntidadBase <|-- Editorial
+    EntidadBase <|-- Libro
+    EntidadBase <|-- Prestamo
+    Persona <|-- Autor
+    Persona <|-- Usuario
+    Autor "1" --> "0..*" Libro : escribe
+    Editorial "1" --> "0..*" Libro : publica
+    Usuario "1" --> "0..*" Prestamo : solicita
+    Libro "1" --> "0..*" Prestamo : se presta en
+    Prestamo ..> EstadoPrestamo : usa
