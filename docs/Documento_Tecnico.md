@@ -42,7 +42,7 @@ Aplicación de escritorio desarrollada en C#, Windows Forms y SQL Server
 
 <br>
 
-Repositorio del proyecto: [URL DEL REPOSITORIO EN GITHUB]
+Repositorio del proyecto: https://github.com/jaramillocode/BibliotecaApp
 
 <br>
 
